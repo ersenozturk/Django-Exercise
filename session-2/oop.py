@@ -3,32 +3,35 @@
         print(i,type(i))
 
 test = [122, 'ersen', [1,2,3], (1,2,3), {1,2,3}, True]
-print_type(test)
+# print_type(test)
 
 class Person: 
-    name = 'ersen',
+    name = 'ersen'
     age= 29
 
 person1 = Person()
 person2 = Person()
 
-print(person1.name)
-print(person2.name)
+# print(person1.name)
+# print(person2.name)
 
 Person.job = 'developer'
 
-print(person1.job) """
+# print(person1.job) """
 
 #! class attributes and instance attrbutes
 """ 
 class Person: 
-    name = 'ersen',
+    name = 'ersen',  # class attribute
     age= 29
 
 person1 = Person()
 person2 = Person()
-person1.location = 'Turkey'
-print(person1.location)  """
+person1.location = 'Turkey'  # instance attribute
+
+# print(person2.location)  
+print(person1.location)  
+"""
 
 #! SELF keyword
 
@@ -71,15 +74,17 @@ person1.get_details() """
 
 person1 = Person()
 
-print(person1.company)
-person1.salute() """
+# print(person1.salute())
+
+person1.salute()
+print(person1.company) """
 
 #! special methods
 
 """ class Person: 
     company = 'ersenDeveloperTeam'
 
-    def __init__(self,name,age): # tanmlama yapar yapamz otomatik olarak çalışır
+    def __init__(self,name,age): # tanmlama yapar yapamz otomatik olarak çalışır / JS deki constructor gibi
         self.name = name
         self.age = age
     
@@ -92,7 +97,7 @@ person1.salute() """
 person1 = Person('sahinder',29)
 person1.get_details()
 
-print(person1)  # __str__ dan sonra """
+print(person1)  # __str__ methodun dan sonra """
 
 #---------------
 #! encapsulation and abstraction (veriyi gizleme)
@@ -100,7 +105,7 @@ print(person1)  # __str__ dan sonra """
 """ class Person: 
     company = 'ersenDeveloperTeam'
 
-    def __init__(self,name,age): # tanmlama yapar yapamz otomatik olarak çalışır
+    def __init__(self,name,age): # tanmlama yapar yapamz otomatik olarak çalışır demştik
         self.name = name
         self.age = age
         self._id = 5000   #gör ama değiştirme python için / private dir değişirse düzgün çalışamz
@@ -113,6 +118,7 @@ print(person1)  # __str__ dan sonra """
         print(self.name, self.age)
 
 person1 = Person('mike', 33)
+print(person1)  # --> def __str__(self): sayesinde yazdırlır
 print(person1._id)
 # print(person1.__id2)
 print(person1._Person__id2)
@@ -120,7 +126,7 @@ print(person1._Person__id2)
 
 #--
 liste = [2,5,1,98,34,60,70]
-print(liste.sort())
+# print(liste.sort()) #--> None 
 liste.sort()
 print(liste)
 #-- """
@@ -142,7 +148,6 @@ print(liste)
 
 
 class Employee(Person):
-
     def __init__(self,name,age,path): 
         # self.name = name
         # self.age = age
@@ -153,15 +158,15 @@ class Employee(Person):
     def get_details(self):
         # print(self.name,self.age,self.path)
         super().get_details()
-        print('look at 156 line-->', self.path)
+        print('look at 155 line-->', self.path)
 
 emp1 = Employee('ersen',29, 'FS')
-emp1.get_details() """
+emp1.get_details() """ 
 
 #! multiple inheritance
 
 """ class Person: 
-    company = 'ersenDeveloperTeam'
+    company = 'ersen\'sDeveloperTeam'
 
     def __init__(self,name,age): 
         self.name = name
@@ -182,24 +187,20 @@ class Lang:
 
 class Employee(Person, Lang):
     def __init__(self,name,age,path, langs): 
-        # self.name = name
-        # self.age = age
-        super().__init__(name,age)
-        self.path = path
-        # self.langs = langs
-        Lang.__init__(self, langs)
+        super().__init__(name,age)  # --> self.name = name    self.age = age
+        self.path = path  # --> Employee class'ının kendi attribute si
+        Lang.__init__(self, langs) # --> self.langs = langs
 
     #?override
     def get_details(self):
-        # print(self.name,self.age,self.path)
-        super().get_details()
+        super().get_details()  # --> Employee class ı, Person class ının get_details() methodunun üzerine yazıyor.  
         print('look at 156 line-->', self.path)
 
 emp1 = Employee('ersen',29, 'FS', ['python', 'js'])
 emp1.get_details()
 emp1.display_langs() 
 
-print(Employee.mro())
-"""
+print(Employee.mro()) """
+
 #--------
 
