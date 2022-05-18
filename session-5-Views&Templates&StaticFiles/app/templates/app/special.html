@@ -1,0 +1,36 @@
+{% load static %}
+
+<head>
+    <link rel="stylesheet" href="{% static 'app/style.css' %}">
+</head>
+
+
+<h1>This is Special Page!</h1>
+
+
+{{ request.user }}
+<br>
+
+<h2>The best bootcamp is {{ title | upper }}!</h2>
+
+
+{{ dict1.django | title }}
+
+{# This code is for loop #}
+{% for i in my_list %}
+    <li>{{ i }}</li>
+{% endfor %}
+
+
+<!-- <h3>This is commented!</h3> -->
+
+{% comment %}
+    This
+    is
+    multi 
+    line
+    comment
+{% endcomment %}
+     
+<img src="{% static 'app/kitten.jpg' %}" alt="Kitten" height="300">
+
