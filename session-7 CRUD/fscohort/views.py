@@ -1,7 +1,4 @@
 from multiprocessing import context
-import re
-from django.shortcuts import redirect, render
-
 from django.shortcuts import render,redirect
 from .models import Student
 from .forms import StudentForm
