@@ -127,3 +127,7 @@ DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 #!
 # login ouktan sonra redirect 'home' olsun istersek
 LOGIN_REDIRECT_URL = 'home'
+
+#console backend i için
+EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend'
+
