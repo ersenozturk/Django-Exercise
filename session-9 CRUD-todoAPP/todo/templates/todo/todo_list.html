@@ -1,0 +1,17 @@
+{% extends 'todo/base.html' %}
+
+{% block content %}
+
+<h2>TODO List</h2>
+<hr>
+
+<ul>
+{% for todo in todos  %}
+
+
+<a href = "{% url 'update'  todo.id %}"> 
+<li>{{todo}}</li></a>
+{% endfor %}
+</ul>
+
+{% endblock content %}
