@@ -21,8 +21,8 @@ def register(request):
             user = authenticate(username= username, password = password)
             login(request, user)
             return redirect('home')
-    
-    form = UserCreationForm()
+    else:
+        form = UserCreationForm()
 
     context = {
         'form': form
